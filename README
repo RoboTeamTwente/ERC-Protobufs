@@ -1,6 +1,8 @@
 The official protobuffer packets for communication between Embedded, Software & Control.
 This repository can be implemented as a submodule into other repositories. It is in ERC-Embedded.
 
+It is extremely important that each protobuffer has a UNIQUE name, irrespective of the folder it resides in.
+
 For more information on submodules, see: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
 After cloning a repo with submodules, run:
@@ -8,4 +10,3 @@ git submodule init
 git submodule update
 
 or clone the repo with: git clone --recurse-submodules [repo_link]
-
