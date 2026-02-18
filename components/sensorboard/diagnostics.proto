@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "sensor.proto";
+import "components/common/sensor.proto";
 import "ph_sensor.proto";
 import "imu_sensor.proto";
 import "gps_sensor.proto";
