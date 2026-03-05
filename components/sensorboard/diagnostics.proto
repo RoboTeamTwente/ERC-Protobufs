@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-import "components/common/sensor.proto";
-import "components/sensorboard/ph_sensor.proto";
-import "components/sensorboard/imu_sensor.proto";
-import "components/sensorboard/gps_sensor.proto";
+import "sensor.proto";
+import "ph_sensor.proto";
+import "imu_sensor.proto";
+import "gps_sensor.proto";
 
 message SensorBoardDiagnostics {
   enum State {
