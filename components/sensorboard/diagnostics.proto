@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-import "sensor.proto";
-import "ph_sensor.proto";
-import "imu_sensor.proto";
-import "gps_sensor.proto";
+import "components/common/sensor.proto";
+import "components/sensorboard/ph_sensor.proto";
+import "components/sensorboard/imu_sensor.proto";
+import "components/sensorboard/gps_sensor.proto";
 
 message SensorBoardDiagnostics {
   enum State {
@@ -20,6 +20,6 @@ message SensorBoardDiagnostics {
   // Overall sensor board health
   float board_temperature = 4;
   float board_voltage = 5;
-  
+
   GPSSensorInformation gps_sensor_1 = 6;
 }

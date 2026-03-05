@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "sensor.proto";
+import "components/common/sensor.proto";
 
 // PH sensor error codes
 enum PHErrorCode {
