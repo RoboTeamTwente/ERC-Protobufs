@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+// Sensor Board Message Type Definitions (0x04XX range)
+enum SensorBoardMessageType {
+  MSG_SENSOR_GPS_INFO = 0x0400;
+  MSG_SENSOR_IMU_INFO = 0x0401;
+  MSG_SENSOR_PH_INFO = 0x0402;
+  MSG_SENSOR_DIAGNOSTICS = 0x0403;
+}

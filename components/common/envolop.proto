@@ -1,44 +1,53 @@
 syntax = "proto3";
 
-// Board Identifier Codes (8 bits - first byte of identifier)
+// Import board-specific message type definitions
+import "message_types.proto"; // Imports from arm_board, driving_board, sensorboard
+
+// Board Identifier Codes (for reference and routing)
 enum BoardId {
-  RESERVED = 0x00; //00 is reserved cause if there is an error in the identifier
-  ARM_BOARD = 0x01;
-  DEBUGGING_BOARD = 0x02;
-  DRIVING_BOARD = 0x03;
-  SENSOR_BOARD = 0x04;
-  SURFACE_SAMPLER_BOARD = 0x05; // yet to be created
-  // if more boards are added, one can put them here. (remember the max identifier is 0xFF(which means we can have a max of 255 boards, low-key make a rocket and few drones attached to the rover in the future))
+  BOARD_RESERVED = 0x00;
+  BOARD_ARM = 0x01;
+  BOARD_DEBUGGING = 0x02;
+  BOARD_DRIVING = 0x03;
+  BOARD_SENSOR = 0x04;
+  BOARD_SURFACE_SAMPLER = 0x05;
+}
+
+// System-level Message Types (0x00XX range)
+enum SystemMessageType {
+  MSG_UNKNOWN = 0x0000;
+  MSG_BROADCAST_SENDING_TYPES = 0x0001; // Handshake: What a node sends
+  MSG_BROADCAST_RECEIVING_TYPES = 0x0002; // Handshake: What a node receives
 }
 
 // ---------  ENVELOPE MESSAGE ----------
 
-// Used to wrap a message 
+// Universal message wrapper for all board communications
 message PBMessageEnvelope {
-    // identifier format:
-    // |--------|---------------------------|
-    // |board_id|   message_identifier      |
-    // | 8 bits |   24 bits (3 bytes)       | 
-    // |--------|---------------------------|
-    // Reserved Identifiers: 0xXX0000: sending types (see below)
-    // Reserved Identifiers: 0xXX0001: receiving types (see below)
-    // Reserved Identifiers: 0xXX0002: diagnostics
-    // The 'data' field in PBMessageEnvelope contains the serialized board-specific message
-    int32 identifier = 1;
+    // Message type identifies both the source board and specific message
+    // Format: 0xBBMM where BB = board_id, MM = message_id
+    // Use SystemMessageType, ArmBoardMessageType, DrivingBoardMessageType, or SensorBoardMessageType enums
+    int32 message_type = 1;
+    
+    // Serialized protobuf message data (dynamically sized)
+    // Contains the actual board-specific message bytes
     bytes data = 2;
 }
 
 // ---------  HANDSHAKE MESSAGES ----------
 
 // Used to identify all messages this node can send
+// Sent using MSG_BROADCAST_SENDING_TYPES (SystemMessageType)
 message PBBroadcastSendingTypes {
-  // Identifiers: all others are 3byte long identifiers (length has to be 3*x)
-  bytes identifiers = 1;
+  // Array of message type enum values (as int32) from board-specific enums
+  // Can include: SystemMessageType, ArmBoardMessageType, DrivingBoardMessageType, SensorBoardMessageType
+  repeated int32 message_types = 1;
 }
 
 // Used to identify all messages this node can receive
+// Sent using MSG_BROADCAST_RECEIVING_TYPES (SystemMessageType)
 message PBBroadcastingReceivingTypes {
-  // Identifiers: others are 4byte long identifiers including sender id and message id (length has to be 4*x)
-  bytes identifiers = 1;
+  // Array of message type enum values (as int32) from board-specific enums
+  // Can include: SystemMessageType, ArmBoardMessageType, DrivingBoardMessageType, SensorBoardMessageType
+  repeated int32 message_types = 1;
 }
-

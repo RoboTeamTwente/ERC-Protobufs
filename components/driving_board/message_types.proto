@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+// Driving Board Message Type Definitions (0x03XX range)
+enum DrivingBoardMessageType {
+  MSG_DRIVING_MOTOR_MSG = 0x0300;
+  MSG_DRIVING_MOTOR_PERIODIC_PROGRESS = 0x0301;
+  MSG_DRIVING_DIAGNOSTICS = 0x0302;
+}
