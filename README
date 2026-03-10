@@ -11,3 +11,67 @@ git submodule init
 git submodule update
 
 or clone the repo with: git clone --recurse-submodules [repo_link]
+
+
+## How `envelope.proto` Works
+[Link to source: `ERC-Protobufs/components/common/envelope.proto`](ERC-Protobufs/components/common/envelope.proto)
+
+---
+
+The Protocol Buffer definitions are organized into a modular hierarchy to separate shared logic from board-specific data:
+
+* **`components/common/`**: Shared definitions used across the entire system.
+    * `envelope.proto`: Core message wrapper and `BoardId` enumerations.
+    * `motor.proto`: Standardized motor telemetry and control structures.
+    * `sensor.proto`: Common sensor state enums.
+* **`components/[board_name]/`**: Specific payloads for individual board (point of contact for info about protobuff stuff)
+    * **arm_board/**: Lisa
+    * **driving_board/**: İrem
+    * **sensor_board/**: Shishir
+    * **debugging_board/**: To be added by Nick
+    * **surface_sampler_board/**: To be created
+
+---
+
+### Board Identifiers
+Each board is assigned a unique **8-bit identifier** which occupies the first byte of the 32-bit message identifier:
+
+| ID (Hex) | Board Name | Purpose |
+| :--- | :--- | :--- |
+| **0x00** | `RESERVED` | Default/Error state (prevents uninitialized 0x00000000 from being valid). |
+| **0x01** | `ARM_BOARD` | Robotic arm control and feedback. |
+| **0x02** | `DEBUGGING_BOARD` | protobufs to be implemented by Nick |
+| **0x03** | `DRIVING_BOARD` | driving, movement motors and feedback. |
+| **0x04** | `SENSOR_BOARD` | sensor stuff and feedback. |
+
+---
+
+### Message Envelope
+To maintain a unified communication stream, all specific messages are wrapped in a `PBMessageEnvelope`.
+
+#### Identifier Logic
+The `identifier` (int32) is a composite key structured to allow for figuring out who is sending the message:
+
+| Bits | Field | Description |
+| **23-0** | `message_id` | 24 bits identifying the specific message type. |
+| **31-24** | `board_id` | 8 bits identifying the source board. |
+
+#### Reserved Message Suffixes
+The following identifiers are reserved for system-level node discovery and health monitoring:
+* **`0xXX0000`**: `PBBroadcastSendingTypes` (Node advertisement of output).
+* **`0xXX0001`**: `PBBroadcastingReceivingTypes` (Node advertisement of input).
+* **`0xXX0002`**: `Diagnostics`(??).
+
+#### Data Payload
+* **`data (bytes)`**: This field contains the serialized bytes of the actual board-specific Protobuf message.
+
+---
+
+### Usage Example
+```cpp
+// Packing an envelope for the Sensor Board
+PBMessageEnvelope envelope;
+envelope.set_identifier((SENSOR_BOARD << 24) | 0x000010); // ID 0x10 for 'GPSSensorInformation'
+envelope.set_data(serialized_gps_sensor_proto);
+```
+# GOD BLESS☮️
