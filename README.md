@@ -12,7 +12,6 @@ git submodule update
 
 or clone the repo with: git clone --recurse-submodules [repo_link]
 
-
 ## How `envelope.proto` Works
 [Link to source: `ERC-Protobufs/components/common/envelope.proto`](ERC-Protobufs/components/common/envelope.proto)
 
