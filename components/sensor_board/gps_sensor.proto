@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "sensor.proto";
+import "components/sensor_board/sensor.proto";
 
 // GPS fix information enum
 enum GPSFixQuality {

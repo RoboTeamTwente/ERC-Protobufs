@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+import "components/common/message_types.proto";
+
+message PBMessageEnvelope {
+    PBMessageType type = 1;
+    bytes data = 2;
+}

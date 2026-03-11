@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+
+enum PBMessageType {
+  SensorBoardPHSensorInformation = 0;
+  ArmBoardControlSignals = 1;
+  ArmBoardDiagnostics = 2;
+  ArmBoardMovementFeedback = 3;
+  ArmBoardActualPositions = 4;
+  ArmBoardTargetMovement = 5;
+  ArmBoardObstructions = 6;
+  DrivingBoardDiagnostics = 7;
+  DrivingBoardMotorMessage = 8;
+  DrivingBoardMotorPeriodicProgress = 9;
+  SensorBoardDiagnostics = 10;
+  SensorBoardGPSInformation = 11;
+  SensorBoardIMUInformation = 12;
+}
