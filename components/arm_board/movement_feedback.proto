@@ -2,7 +2,7 @@ syntax = "proto3";
 
 //Possible errors for the arm while moving
 //Message Out: Embedded -> Software, feedback on movement
-message MovementFeedback {
+message ArmBoardMovementFeedback {
     enum ArmError {
     POINT_NOT_IN_RANGE = 0;
     OBSTRUCTION = 1;
@@ -14,7 +14,7 @@ message MovementFeedback {
 }
 
 //Feedback: Embedded -> Software, the actual positions of all the components of the arm
-message ActualPositions {
+message ArmBoardActualPositions {
     bool jaw_open = 1;
     //These are all ANGLES of the rotation of the motor
     float jaw_actual_position = 2;  

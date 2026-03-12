@@ -13,7 +13,7 @@ enum PHErrorCode {
   PH_TEMPERATURE_SENSOR_ERROR = 6;
 }
 
-message PHSensorInformation {
+message SensorBoardPHInfo  {
   float ph_value = 1; // Raw pH measurement (0-14 scale, 7 is neutral)
   float voltage = 2; // Voltage reading from pH sensor in millivolts
   float temperature = 3; // Temperature reading in Celsius (if external sensor available)

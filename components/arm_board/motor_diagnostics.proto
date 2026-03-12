@@ -4,7 +4,7 @@ import "components/common/motor.proto";
 
 //Message Out: Arm board -> Debug, States of ALL motors
 //(If im correct theres 6 on the arm + gripper)
-message ArmMotorDiagnostics {
+message ArmBoardMotorDiagnostics {
     MotorInformation gripper_rotation_motor = 1; //side-to-side rotation of wrist
     MotorInformation gripper_pitch_motor = 2; //up and down rotation of wrist
     MotorInformation base_motor = 3;
@@ -14,7 +14,7 @@ message ArmMotorDiagnostics {
 }
 
 //Message Out: Arm board -> Debug, SUPER diagnostics message with all feedback/diagnostics included
-message ArmDiagnostics {
+message ArmBoardDiagnostics {
     enum State {
         IDLE = 0;
         OPERATING = 1;
@@ -22,5 +22,5 @@ message ArmDiagnostics {
         ERRORED = 3;
     }
     State state = 1;
-    ArmMotorDiagnostics motor_diagnostics = 4;
+    ArmBoardMotorDiagnostics motor_diagnostics = 4;
 }

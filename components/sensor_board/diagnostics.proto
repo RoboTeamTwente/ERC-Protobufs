@@ -14,12 +14,12 @@ message SensorBoardDiagnostics {
   }
 
   State state = 1;
-  PHSensorInformation ph_sensor = 2;
-  IMUSensorInformation imu_sensor = 3;
+  SensorBoardPHInfo ph_sensor = 2;
+  SensorBoardIMUInfo imu_sensor = 3;
 
   // Overall sensor board health
   float board_temperature = 4;
   float board_voltage = 5;
   
-  GPSSensorInformation gps_sensor_1 = 6;
+  SensorBoardGPSInfo gps_sensor_1 = 6;
 }

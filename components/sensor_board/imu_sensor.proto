@@ -15,7 +15,7 @@ enum IMUErrorCode {
   IMU_ACCELEROMETER_ERROR = 8;
 }
 
-message IMUSensorInformation {
+message SensorBoardIMUInfo  {
   // 3-Axis Accelerometer data
   float accel_x = 1;
   float accel_y = 2;
