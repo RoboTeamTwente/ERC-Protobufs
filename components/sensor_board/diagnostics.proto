@@ -5,7 +5,7 @@ import "components/sensor_board/ph_sensor.proto";
 import "components/sensor_board/imu_sensor.proto";
 import "components/sensor_board/gps_sensor.proto";
 
-message SensorBoardDiagnostics {
+message SensorDiagnostics {
   enum State {
     IDLE = 0;
     OPERATING = 1;
