@@ -21,7 +21,7 @@ enum GPSErrorCode {
   GPS_LOW_SIGNAL_QUALITY = 4;
 }
 
-message GPSSensorInformation {
+message SensorBoardGPSInfo {
   // GPS coordinates
   double latitude = 1; // Degrees (positive = North, negative = South)
   double longitude = 2; // Degrees (positive = East, negative = West)

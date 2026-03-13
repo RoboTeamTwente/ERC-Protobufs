@@ -7,7 +7,7 @@ syntax = "proto3";
     //If the voltage at the REV port is <= Reverse threshold voltage, the pulse is 90° ahead of the pulse.
     //If the REV port voltage is > Reverse threshold voltage, the pulse will precede the pulse by 90° 
     //and the motor rotation direction will be reversed.
-message ControlSignals {
+message ArmBoardControlSignals {
     //allegedly these will be in volts, but we will know once the controllers have been chosen
     float control_gripper_rotation = 1;         
     float control_gripper_pitch = 2;          

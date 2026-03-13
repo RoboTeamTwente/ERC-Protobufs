@@ -1,8 +1,37 @@
 syntax = "proto3";
 
-import "components/common/message_types.proto";
 
-message PBMessageEnvelope {
-    PBMessageType type = 1;
-    bytes data = 2;
+
+import "components/sensor_board/ph_sensor.proto";
+import "components/sensor_board/imu_sensor.proto";
+import "components/sensor_board/gps_sensor.proto";
+import "components/sensor_board/diagnostics.proto";
+import "components/arm_board/control_signals.proto";
+import "components/arm_board/motor_diagnostics.proto";
+import "components/arm_board/movement_feedback.proto";
+import "components/arm_board/movement_in.proto";
+import "components/driving_board/motor_diagnostics.proto";
+import "components/driving_board/motor_msg.proto";
+import "components/driving_board/motor_periodic_progress.proto";
+
+
+
+
+
+message PBEnvelope {
+  oneof payload {
+    SensorBoardPHInfo ph_info = 1;
+    ArmBoardControlSignals arm_ctrl = 2;
+    ArmBoardDiagnostics arm_diag = 3;
+    ArmBoardMovementFeedback arm_feedback = 4;
+    ArmBoardActualPositions arm_pos = 5;
+    ArmBoardTargetMovement arm_target = 6;
+    ArmBoardObstructions arm_obstructions = 7;
+    DrivingBoardDiagnostics drive_diag = 8;
+    DrivingBoardMotorMessage drive_motor = 9;
+    DrivingBoardMotorPeriodicProgress drive_progress = 10;
+    SensorBoardDiagnostics sensor_diag = 11;
+    SensorBoardGPSInfo gps_info = 12;
+    SensorBoardIMUInfo   imu_info = 13;
+  }
 }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 //Message In: Software -> Control, Place to move to
 //Target is the point of the TIP of the GRIPPER
-message TargetMovement {
+message ArmBoardTargetMovement {
     //(x,y,z) coordinates for moving
     float target_x = 1;
     float target_y = 2;
@@ -14,7 +14,7 @@ message TargetMovement {
 }
 
 //Placeholder
-message Obstructions {
+message ArmBoardObstructions {
     float obstructions_list = 1; //lists? //Maybe we will hardcode them (probably not)
 }
 
