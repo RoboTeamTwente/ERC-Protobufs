@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "components/common/motor.proto";
 
-message DrivingDiagnostics {
+message DrivingBoardDiagnostics {
   enum State {
       IDLE = 0;
       OPERATING = 1;
