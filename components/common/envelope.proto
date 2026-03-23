@@ -1,11 +1,5 @@
 syntax = "proto3";
 
-
-
-import "components/sensor_board/ph_sensor.proto";
-import "components/sensor_board/imu_sensor.proto";
-import "components/sensor_board/gps_sensor.proto";
-import "components/sensor_board/diagnostics.proto";
 import "components/arm_board/control_signals.proto";
 import "components/arm_board/motor_diagnostics.proto";
 import "components/arm_board/movement_feedback.proto";
@@ -13,10 +7,14 @@ import "components/arm_board/movement_in.proto";
 import "components/driving_board/motor_diagnostics.proto";
 import "components/driving_board/motor_msg.proto";
 import "components/driving_board/motor_periodic_progress.proto";
+import "components/sensor_board/diagnostics.proto";
+import "components/sensor_board/gps_sensor.proto";
+import "components/sensor_board/imu_sensor.proto";
+import "components/sensor_board/ph_sensor.proto";
 
-
-
-
+// All PBEnvelopes send need to have trailing 0 bytes *removed*
+// before sending. This is to decrease network traffic
+// That means that when you get a PBEnvelope you need to pad it to the PBEnvelope Size
 
 message PBEnvelope {
   oneof payload {
@@ -32,6 +30,6 @@ message PBEnvelope {
     DrivingBoardMotorPeriodicProgress drive_progress = 10;
     SensorBoardDiagnostics sensor_diag = 11;
     SensorBoardGPSInfo gps_info = 12;
-    SensorBoardIMUInfo   imu_info = 13;
+    SensorBoardIMUInfo imu_info = 13;
   }
 }
