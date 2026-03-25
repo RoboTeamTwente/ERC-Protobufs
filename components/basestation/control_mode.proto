@@ -3,7 +3,8 @@ syntax = "proto3";
 // Subsystem controlled by the operator
 enum ActiveSubsystem {
     SUBSYSTEM_DRIVING = 0;
-    SUBSYSTEM_GRIPPER = 1;
+    SUBSYSTEM_ARM = 1;
+    SUBSYSTEM_GRIPPER = 2;
 }
 
 // Control mode for a given subsystem
@@ -16,5 +17,6 @@ enum ControlMode {
 message BasestationControlMode {
     ActiveSubsystem active_subsystem = 1; // Which subsystem is currently active
     ControlMode driving_mode =2; // Auto/Manual for driving
-    ControlMode gripper_mode = 3; // Auto/Manual for gripper
+    ControlMode arm_mode =3;
+    ControlMode gripper_mode = 4; // Auto/Manual for gripper
 }

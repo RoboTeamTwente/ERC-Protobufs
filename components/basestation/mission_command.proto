@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+// This is "WORK IN PROGRESS"
+
 // Pixel coordinate on camera frame
 message PixelCoordinate {
     uint32 x = 1;
