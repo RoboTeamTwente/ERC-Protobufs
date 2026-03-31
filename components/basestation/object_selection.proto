@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+// BS->ROS: Operator selected an object to manipulate
+// Sent when the operator clicks a bounding box on the Basestation
+message BasestationObjectSelection {
+  uint32 object_id = 1; // matches DetectedObject.id from BasestationDetectedObjects, so the Behavior Node on Johnny Boi will look up the full detection info (type, BBOX, 3d Position) from its last received BasestationDetectedObjects message.
+}

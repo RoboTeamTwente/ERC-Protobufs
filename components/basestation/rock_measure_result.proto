@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+// ROS->BS: Estimated physical dimensions of the rock
+message BasestationRockMeasureResult {
+  float length_cm = 1; // estimated length along the operator-drawn line
+  float width_cm  = 2; // estimated width perpendicular to the line
+}

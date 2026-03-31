@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+// This is "WORK IN PROGRESS"
+
+// Pixel coordinate on camera frame
+message PixelCoordinate {
+    uint32 x = 1;
+    uint32 y = 2;
+}
+
+// Follow waypoints: a list of GPS coordinates
+message Waypoint {
+    double latitude = 1;
+    double longitude = 2;
+}
+
+message FollowWaypoints {
+    repeated Waypoint waypoints = 1;
+}
+
+// Collect Rock/Regolith: target identified by pixel coordinate
+message CollectSample {
+    PixelCoordinate target = 1;
+}
+
+// Measure pH; target location identified by pixel coordinate
+message MeasurePH {
+    PixelCoordinate target = 1;
+}
+
+// BS->ROS: High level mission command from operator
+// Only one command is active at a time
+message BasestationMissionCommand {
+    oneof command {
+        bool assume_initial_position = 1; // Assume rover is at the first waypoint (for testing)
+        FollowWaypoints follow_waypoints = 2;
+        CollectSample collect_sample = 3;
+        MeasurePH measure_ph = 4;
+        bool empty_container = 5; // no payload
+    }
+}

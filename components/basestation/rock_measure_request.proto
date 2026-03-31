@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// BS->ROS: Operator defines a line from two pixels across a rock for measurement
+message BasestationRockMeasureRequest {
+  // First pixel
+  uint32 x1 = 1;
+  uint32 y1 = 2;
+
+  // Second pixel
+  uint32 x2 = 3;
+  uint32 y2 = 4;
+}
