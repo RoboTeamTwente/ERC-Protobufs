@@ -44,7 +44,7 @@ message PBEnvelope {
     BasestationDetectedObjects detected_objects = 16;
     BasestationObjectSelection object_selection = 17;
     BasestationRockMeasureRequest rock_measure_request = 18;
-    BasestatinRockMeasureResult rock_measure_result = 19;
+    BasestationRockMeasureResult rock_measure_result = 19;
     
     // Localization (ROS SLAM -> BS)
     RoverLocalization rover_localization = 20;
