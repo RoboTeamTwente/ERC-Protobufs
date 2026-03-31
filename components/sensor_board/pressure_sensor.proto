@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "components/sensor_board/sensor.proto";
+
+// Pressure sensor error codes
+enum PressureErrorCode {
+  PRESSURE_NO_ERROR = 0;
+  PRESSURE_COMMUNICATION_FAILURE = 1;
+  PRESSURE_OUT_OF_RANGE = 2;
+  PRESSURE_CALIBRATION_REQUIRED = 3;
+  PRESSURE_INVALID_DATA = 4;
+  PRESSURE_SENSOR_FAULT = 5;
+}
+
+message SensorBoardPressureInfo {
+  uint32 sensor_index = 1; // 0-based index of the pressure sensor
+
+  // Pressure data
+  float pressure_kpa = 2; // Pressure in kilopascals
+  float temperature_c = 3; // Temperature in Celsius (if available)
+  float voltage = 4; // Sensor output voltage (if available)
+
+  // Calibration status
+  bool is_calibrated = 5;
+
+  SensorState state = 6;
+  PressureErrorCode error_code = 7; // Error code if state is SENSOR_ERROR
+}

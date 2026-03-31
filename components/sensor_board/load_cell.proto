@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "components/sensor_board/sensor.proto";
+enum LoadCellErrorCode {
+  LOAD_CELL_NO_ERROR = 0;
+  LOAD_CELL_COMMUNICATION_FAILURE = 1;
+  LOAD_CELL_OUT_OF_RANGE = 2;
+  LOAD_CELL_CALIBRATION_REQUIRED = 3;
+  LOAD_CELL_INVALID_DATA = 4;
+  LOAD_CELL_SENSOR_FAULT = 5;
+}
+
+message SensorBoardLoadCellInfo {
+  uint32 sensor_index = 1; // 0-based index of the load cell
+  float force_newtons = 2; // Force in Newtons
+  float mass_grams = 3; // Mass in grams (derived from force)
+  int32 raw_counts = 4;
+
+  // Calibration status and parameters
+  bool is_calibrated = 5;
+  float scale_newtons_per_count = 6;
+  int32 tare_offset_counts = 7;
+
+  SensorState state = 8;
+  LoadCellErrorCode error_code = 9; // Error code if state is SENSOR_ERROR
+}

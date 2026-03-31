@@ -6,6 +6,8 @@ import "components/sensor_board/ph_sensor.proto";
 import "components/sensor_board/imu_sensor.proto";
 import "components/sensor_board/gps_sensor.proto";
 import "components/sensor_board/diagnostics.proto";
+import "components/sensor_board/load_cell.proto";
+import "components/sensor_board/pressure_sensor.proto";
 import "components/arm_board/control_signals.proto";
 import "components/arm_board/motor_diagnostics.proto";
 import "components/arm_board/movement_feedback.proto";
@@ -33,5 +35,7 @@ message PBEnvelope {
     SensorBoardDiagnostics sensor_diag = 11;
     SensorBoardGPSInfo gps_info = 12;
     SensorBoardIMUInfo   imu_info = 13;
+    SensorBoardLoadCellInfo load_cell_info = 14;
+    SensorBoardPressureInfo pressure_info = 15;
   }
 }
