@@ -15,6 +15,15 @@ import "components/driving_board/motor_msg.proto";
 import "components/driving_board/motor_periodic_progress.proto";
 import "components/sensor_board/load_cell.proto";
 import "components/sensor_board/pressure_sensor.proto";
+
+import "components/basestation/control_mode.proto";
+import "components/basestation/detected_objects.proto";
+import "components/basestation/mission_command.proto";
+import "components/basestation/object_selection.proto";
+import "components/basestation/rock_measure_request.proto";
+import "components/basestation/rock_measurement_request.proto";
+import "components/basestation/rock_measurement_result.proto";
+import "components/basestation/rover_localization.proto";
 // All PBEnvelopes send need to have trailing 0 bytes *removed*
 // before sending. This is to decrease network traffic
 // That means that when you get a PBEnvelope you need to pad it to the PBEnvelope Size
@@ -36,5 +45,14 @@ message PBEnvelope {
     SensorBoardIMUInfo   imu_info = 13;
     SensorBoardLoadCellInfo load_cell_info = 14;
     SensorBoardPressureInfo pressure_info = 15;
+
+    // Basestation messages
+    BasestationControlMode control_mode = 16;
+    BasestationDetectedObjects detected_objects = 17;
+    BasestationMissionCommand mission_command = 18;
+    BasestationObjectSelection object_selection = 19;
+    BasestationRockMeasureRequest rock_measure_request = 20;
+    BasestationRockMeasureResult rock_measure_result = 21;
+    BasestationRoverLocalization rover_localization = 22;
   }
 }
