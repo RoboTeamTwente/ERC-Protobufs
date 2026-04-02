@@ -19,6 +19,7 @@ import "components/sensor_board/pressure_sensor.proto";
 import "components/basestation/control_mode.proto";
 import "components/basestation/detected_objects.proto";
 import "components/basestation/mission_command.proto";
+import "components/basestation/object_selection.proto";
 import "components/basestation/rock_measure_request.proto";
 import "components/basestation/rock_measure_result.proto";
 import "components/basestation/rover_localization.proto";
