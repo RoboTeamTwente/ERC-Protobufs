@@ -15,7 +15,7 @@ message ArmBoardMovementFeedback {
 
 //Feedback: Embedded -> Software, the actual positions of all the components of the arm
 message ArmBoardActualPositions {
-    bool jaw_open = 1;
+    bool jaw_open = 1; //boolean
     //These are all ANGLES of the rotation of the motor
     float jaw_actual_position = 2;  
     float base_actual_position = 3;           
