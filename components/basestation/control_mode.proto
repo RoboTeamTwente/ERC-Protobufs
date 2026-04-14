@@ -1,11 +1,8 @@
 syntax = "proto3";
 
-// Subsystem controlled by the operator
-enum ActiveSubsystem {
-    SUBSYSTEM_DRIVING = 0;
-    SUBSYSTEM_ARM = 1;
-    SUBSYSTEM_GRIPPER = 2;
-}
+// The entire rover (driving + arm + gripper) can be moved with one controller scheme.
+// No need to specify control modes for individual subsystems.
+// Just select either manual or autonomous mode.
 
 // Control mode for a given subsystem
 enum ControlMode {
@@ -15,8 +12,5 @@ enum ControlMode {
 
 // BS->ROS: Operator mode selection for the rover
 message BasestationControlMode {
-    ActiveSubsystem active_subsystem = 1; // Which subsystem is currently active
-    ControlMode driving_mode =2; // Auto/Manual for driving
-    ControlMode arm_mode =3;
-    ControlMode gripper_mode = 4; // Auto/Manual for gripper
+    ControlMode mode = 1; // Desired control mode for the rover
 }

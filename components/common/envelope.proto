@@ -21,8 +21,7 @@ import "components/sensor_board/pressure_sensor.proto";
 
 //basestation imports
 import "components/basestation/control_mode.proto";
-import "components/basestation/detected_objects.proto";
-import "components/basestation/mission_command.proto";
+import "components/basestation/detected_object.proto";
 import "components/basestation/object_selection.proto";
 import "components/basestation/rock_measure_request.proto";
 import "components/basestation/rock_measure_result.proto";
@@ -58,11 +57,10 @@ message PBEnvelope {
 
     // Basestation messages
     BasestationControlMode control_mode = 16;
-    // BasestationDetectedObjects detected_objects = 17;
-    // BasestationMissionCommand mission_command = 18;
-    BasestationObjectSelection object_selection = 19;
-    BasestationRockMeasureRequest rock_measure_request = 20;
-    BasestationRockMeasureResult rock_measure_result = 21;
-    BasestationRoverLocalization rover_localization = 22;
+    BasestationDetectedObject detected_object = 17;
+    BasestationObjectSelection object_selection = 18;
+    BasestationRockMeasureRequest rock_measure_request = 19;
+    BasestationRockMeasureResult rock_measure_result = 20;
+    BasestationRoverLocalization rover_localization = 21;
   }
 }
