@@ -8,7 +8,7 @@ message ArmBoardDiagnostics {
         IDLE = 0;
         OPERATING = 1;
         CALIBRATING = 2; //Arm not available to move while calibrating
-        ERRORED = 3;
+        ERROR = 3;
     }
     MotorInformation gripper_rotation_motor = 1; //side-to-side rotation of wrist
     MotorInformation gripper_pitch_motor = 2; //up and down rotation of wrist
@@ -17,4 +17,4 @@ message ArmBoardDiagnostics {
     MotorInformation bottom_motor = 5; //bottom shoulder
     MotorInformation jaw_motor = 6; //opens and closes the gripper
     State state = 7;
-}
+}   
