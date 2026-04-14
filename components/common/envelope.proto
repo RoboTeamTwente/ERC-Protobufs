@@ -7,10 +7,10 @@ import "components/sensor_board/gps_sensor.proto";
 import "components/sensor_board/diagnostics.proto";
 
 //armboard imports
-import "components/arm_board/control_signals.proto";
+import "components/arm_board/movement_control_in.proto";
 import "components/arm_board/motor_diagnostics.proto";
-import "components/arm_board/movement_feedback.proto";
-import "components/arm_board/movement_in.proto";
+import "components/arm_board/movement_software_feedback.proto";
+import "components/arm_board/movement_software_target.proto";
 
 //drivingboard imports
 import "components/driving_board/motor_diagnostics.proto";
@@ -58,8 +58,8 @@ message PBEnvelope {
 
     // Basestation messages
     BasestationControlMode control_mode = 16;
-    BasestationDetectedObjects detected_objects = 17;
-    BasestationMissionCommand mission_command = 18;
+    // BasestationDetectedObjects detected_objects = 17;
+    // BasestationMissionCommand mission_command = 18;
     BasestationObjectSelection object_selection = 19;
     BasestationRockMeasureRequest rock_measure_request = 20;
     BasestationRockMeasureResult rock_measure_result = 21;
