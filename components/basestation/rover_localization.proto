@@ -2,7 +2,7 @@ syntax = "proto3";
 
 // ROS->BS: Estimated real-world position of the rover
 // Computed from SLAM + ArUco + Odometry on Johnny Boy
-message RoverLocalization {
+message BasestationRoverLocalization {
   float x = 1; // meters
   float y = 2; // meters
   float z = 3; // meters
