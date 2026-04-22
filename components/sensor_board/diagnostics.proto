@@ -4,6 +4,8 @@ import "components/sensor_board/sensor.proto";
 import "components/sensor_board/ph_sensor.proto";
 import "components/sensor_board/imu_sensor.proto";
 import "components/sensor_board/gps_sensor.proto";
+import "components/sensor_board/load_cell.proto";
+import "components/sensor_board/pressure_sensor.proto";
 
 message SensorBoardDiagnostics {
   enum State {
@@ -22,4 +24,6 @@ message SensorBoardDiagnostics {
   float board_voltage = 5;
   
   SensorBoardGPSInfo gps_sensor_1 = 6;
+  SensorBoardLoadCellInfo load_cell=7;
+  SensorBoardPressureInfo pressure_sensor=8;
 }
