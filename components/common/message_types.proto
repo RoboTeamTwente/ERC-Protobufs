@@ -17,4 +17,6 @@ enum PBMessageType {
   SensorBoardIMUInformation = 12;
   SensorBoardLoadCellInformation = 13;
   SensorBoardPressureInformation = 14;
+  SensorBoardFlowSensorInformation = 15;
+  SensorBoardPumpInformation = 16;
 }

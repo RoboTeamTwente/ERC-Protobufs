@@ -5,6 +5,8 @@ import "components/sensor_board/ph_sensor.proto";
 import "components/sensor_board/imu_sensor.proto";
 import "components/sensor_board/gps_sensor.proto";
 import "components/sensor_board/diagnostics.proto";
+import "components/sensor_board/flow_sensor.proto";
+import "components/sensor_board/pump.proto";
 
 //armboard imports
 import "components/arm_board/movement_control_in.proto";
@@ -54,6 +56,10 @@ message PBEnvelope {
     SensorBoardIMUInfo   imu_info = 13;
     SensorBoardLoadCellInfo load_cell_info = 14;
     SensorBoardPressureInfo pressure_info = 15;
+
+    // New sensor board messages
+    SensorBoardFlowSensorInfo flow_sensor_info = 22;
+    SensorBoardPumpInfo pump_info = 23;
 
     // Basestation messages
     BasestationControlMode control_mode = 16;

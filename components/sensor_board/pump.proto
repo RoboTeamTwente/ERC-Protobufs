@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "components/sensor_board/sensor.proto";
+
+// Peristaltic Pump control and status message
+message SensorBoardPumpInfo {
+  // Whether the pump is enabled (on/off)
+  bool enabled = 1;
+  // Pump direction: true = forward, false = reverse
+  bool direction = 2;
+  // Pump speed as percent (0-100)
+  uint32 speed_percent = 3;
+  // Optional: speed in RPM
+  uint32 speed_rpm = 4;
+  // Pump status (OK, ERROR, etc.)
+  string status = 5;
+  // Current state of the pump
+  SensorState state = 6;
+}

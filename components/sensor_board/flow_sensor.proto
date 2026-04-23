@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "components/sensor_board/sensor.proto";
+
+// YF-B6 Water Flow Sensor message definition
+message SensorBoardFlowSensorInfo {
+  // Current flow rate in liters per minute
+  float flow_rate_l_min = 1;
+  // Total volume measured in liters
+  float total_volume_l = 2;
+  // Raw pulse count from the sensor
+  uint32 pulse_count = 3;
+  // Sensor status (OK, ERROR, etc.)
+  string status = 4;
+  // Current state of the flow sensor
+  SensorState state = 5;
+}
