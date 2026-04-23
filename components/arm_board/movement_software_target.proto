@@ -3,6 +3,10 @@ syntax = "proto3";
 //Message In: Software -> Control, Place to move to
 //Target is the point of the TIP of the GRIPPER
 message ArmBoardTargetMovement {
+    // relative = false means that the coordinates are relative to the base (current behavior);
+    // relative = true means that the coordinates are relative to the current position of the gripper (for joystick control).
+    bool relative = 6;
+    
     //(x,y,z) coordinates for moving
     float target_x = 1;
     float target_y = 2;
