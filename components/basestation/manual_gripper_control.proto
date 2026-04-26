@@ -1,0 +1,5 @@
+syntax="proto3";
+
+message BasestationManualGripperControl {
+    sint32 speed = 1; // gripper speed command (positive = open, negative = close)
+}

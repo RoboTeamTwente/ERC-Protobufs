@@ -1,0 +1,7 @@
+syntax="proto3";
+
+message BasestationManualArmVelocity {
+    sint32 x = 1; // end effector velocity X (positive = right, negative = left)
+    sint32 y = 2; // end effector velocity Y (positive = forward, negative = backward)
+    sint32 z = 3; // end effector velocity Z (positive = up, negative = down)
+}

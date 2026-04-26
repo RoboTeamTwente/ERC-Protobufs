@@ -1,0 +1,5 @@
+syntax="proto3";
+
+message BasestationManualArmFlick {
+    sint32 flick = 1; // flick command (positive = flick forward, negative = flick backward)
+}
