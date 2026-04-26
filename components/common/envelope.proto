@@ -86,4 +86,8 @@ message PBEnvelope {
     // Gripper
     BasestationManualGripperControl manual_gripper_control = 29;
   }
+
+  uint32 timeout = 30; // timeout for certain messages (driving, arm, beacon, basestation or jetson)
+  // timeout will be 0 for messages that don't need it (like diagnostics)
+  // engage BRAKES after timeout
 }
