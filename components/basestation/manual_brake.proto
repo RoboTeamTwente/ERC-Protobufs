@@ -1,0 +1,5 @@
+syntax="proto3";
+
+message BasestationManualBrake {
+    bool brake = 1; // engage/disengage brake (true = engage, false = disengage)
+} 

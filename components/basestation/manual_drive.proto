@@ -1,0 +1,6 @@
+syntax="proto3";
+
+message BasestationManualDrive {
+    float forward_backward = 1; // Forward/backward speed command (positive = forward, negative = backward)
+    float turn = 2; // Left/right turn command (positive = right, negative = left)
+}
