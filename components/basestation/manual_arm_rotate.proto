@@ -1,6 +1,0 @@
-syntax="proto3";
-
-message BasestationManualArmRotate {
-    // from gripper perspective
-    sint32 rotate = 1; // rotation command (positive = rotate clockwise, negative = rotate counterclockwise)
-}

@@ -1,0 +1,19 @@
+syntax="proto3";
+
+
+message BasestationManualArmMovement {
+    // Arm Movement (Velocity)
+    sint32 x = 1; // end effector velocity X (positive = right, negative = left)
+    sint32 y = 2; // end effector velocity Y (positive = forward, negative = backward)
+    sint32 z = 3; // end effector velocity Z (positive = up, negative = down)
+
+    // Arm Rotation
+    // from gripper perspective
+    sint32 rotate = 4; // rotation command (positive = rotate clockwise, negative = rotate counterclockwise)
+
+    // Arm Flick
+    sint32 flick = 5; // flick command (positive = flick forward, negative = flick backward)
+
+    // Gripper
+    sint32 speed = 6; // gripper speed command (positive = open, negative = close)
+}

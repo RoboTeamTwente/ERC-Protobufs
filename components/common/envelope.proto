@@ -30,11 +30,7 @@ import "components/basestation/rock_measure_result.proto";
 import "components/basestation/rover_localization.proto";
 import "components/basestation/manual_drive.proto";
 import "components/basestation/manual_brake.proto";
-import "components/basestation/manual_arm_velocity.proto";
-import "components/basestation/manual_arm_flick.proto";
-import "components/basestation/manual_arm_rotate.proto";
-import "components/basestation/manual_gripper_control.proto";
-
+import "components/basestation/manual_arm_movement.proto";
 // All PBEnvelopes send need to have trailing 0 bytes *removed*
 // before sending. This is to decrease network traffic
 // That means that when you get a PBEnvelope you need to pad it to the PBEnvelope Size
@@ -79,12 +75,9 @@ message PBEnvelope {
     // Driving
     BasestationManualDrive manual_drive = 24;
     BasestationManualBrake manual_brake = 25;
+    
     // Arm
-    BasestationManualArmVelocity manual_arm_velocity = 26;
-    BasestationManualArmFlick manual_arm_flick = 27;
-    BasestationManualArmRotate manual_arm_rotate = 28;
-    // Gripper
-    BasestationManualGripperControl manual_gripper_control = 29;
+    BasestationManualArmMovement manual_arm = 26;
   }
 
   //TODO: Add this timeout field when we are ready. I don't want to break everything right now. 
