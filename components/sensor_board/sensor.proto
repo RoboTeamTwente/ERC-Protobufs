@@ -2,8 +2,17 @@ syntax = "proto3";
 
 // Common sensor state enum used across all sensor types
 enum SensorState {
-  SENSOR_IDLE = 0; // Sensor is idle/not currently sampling
-  SENSOR_OPERATING = 1; // Sensor is actively sampling/operating normally
+  SENSOR_IDLE = 0;        // Sensor is idle/not currently sampling
+  SENSOR_OPERATING = 1;   // Sensor is actively sampling/operating normally
   SENSOR_CALIBRATING = 2; // Sensor is in calibration mode
-  SENSOR_ERROR = 3; // Sensor has encountered an error
+  SENSOR_ERROR = 3;       // Sensor has encountered an error
+}
+
+// Common status enum used across all sensor/actuator types
+enum SensorStatus {
+  STATUS_UNKNOWN = 0;      // Status not yet determined
+  STATUS_OK = 1;           // Operating normally
+  STATUS_ERROR = 2;        // General error
+  STATUS_DISCONNECTED = 3; // Device not detected / disconnected
+  STATUS_INITIALIZING = 4; // Device is starting up
 }

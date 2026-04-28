@@ -12,8 +12,8 @@ message SensorBoardPumpInfo {
   uint32 speed_percent = 3;
   // Optional: speed in RPM
   uint32 speed_rpm = 4;
-  // Pump status (OK, ERROR, etc.)
-  string status = 5;
+  // Pump status
+  SensorStatus status = 5;
   // Current state of the pump
   SensorState state = 6;
 }
