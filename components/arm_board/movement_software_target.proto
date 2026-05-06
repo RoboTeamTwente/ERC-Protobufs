@@ -9,8 +9,11 @@ message ArmBoardTargetMovement {
     float target_z = 3;
     //Rotation (NOT a quarternion)
     float rotation_angle = 4;
+    
     //Jaw position, degree of "openness" is calculated by control(?)
     bool open_jaw = 5;
+    
+    float final_gripper_angle = 6; // approach angle relative to the floor in reference to the end of the gripper.
 }
 
 //Placeholder
