@@ -10,9 +10,9 @@ enum DetectedObjectType {
 
     // Maintenance Task (The Maintenance Task WILL use CV.)
     OBJECT_MAIN_SWITCH = 3;
-    OBJECT_BUTTON = 4;
     OBJECT_SWITCH = 5;
     OBJECT_ROTARY_SWITCH = 6;
+    OBJECT_ROTARY_POWER_SWITCH = 4;
     OBJECT_SOCKET = 7;
     OBJECT_ELECTROMAGNET = 8;
     OBJECT_PLATE = 9;
